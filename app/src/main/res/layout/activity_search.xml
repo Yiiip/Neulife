@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    tools:context="com.lyp.neulife.activity.SearchActivity">
+
+    <include
+        android:id="@+id/searchToolbar"
+        layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/searchTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@+id/searchToolbar"
+        android:background="@color/colorPrimary">
+
+        <!--
+    <AutoCompleteTextView
+        android:id="@+id/searchAutoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:hint="搜索..."
+        android:background="#FFF"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_margin="8dp"
+        android:completionThreshold="1"
+        android:maxLines="1"/>-->
+
+        <EditText
+            android:id="@+id/searchEditTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="搜索..."
+            android:background="#FFF"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:singleLine="true"
+            android:drawableLeft="@android:drawable/ic_menu_search"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/searchListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF"
+        android:layout_below="@+id/searchTextLayout">
+
+    </ListView>
+
+</RelativeLayout>

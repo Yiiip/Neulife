@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#454545">
+
+    <com.bigkoo.convenientbanner.ConvenientBanner
+        android:id="@+id/homeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#C0C0C0"
+        android:layout_alignParentTop="true"
+        app:canLoop="true">
+
+    </com.bigkoo.convenientbanner.ConvenientBanner>
+
+    <!--
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E0E0E0"/>-->
+
+    <LinearLayout
+        android:id="@+id/homeButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_arc_view"
+        android:layout_below="@+id/homeBanner"
+        android:layout_marginTop="-22dp">
+
+        <LinearLayout
+            android:id="@+id/btFun1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp" >
+
+            <com.zhy.view.RoundImageView
+                android:id="@+id/btImg1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:src="@drawable/icon_email_64" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="邮件" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btFun2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp" >
+
+            <com.zhy.view.RoundImageView
+                android:id="@+id/btImg2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:src="@drawable/icon_schedule_64" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="课表" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btFun3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp" >
+
+            <com.zhy.view.RoundImageView
+                android:id="@+id/btImg3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:src="@drawable/icon_leave_64" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="请假" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btFun4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp" >
+
+            <com.zhy.view.RoundImageView
+                android:id="@+id/btImg4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:src="@drawable/icon_more_64" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="更多" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/homeMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="· · · · ·"
+        android:textStyle="bold"
+        android:textColor="#B0B0B0"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/homeButtonLayout"/>
+
+</RelativeLayout>

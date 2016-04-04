@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.lyp.neulife.activity.SettingActivity">
+
+    <include
+        android:id="@+id/settingToolbar"
+        layout="@layout/toolbar"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:layout_below="@+id/settingToolbar">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+            
+            <com.zhy.view.RoundImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/img_user_head_default"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="详情"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/settingUserEnter" />
+
+            <ImageView
+                android:id="@+id/settingUserEnter"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/icon_enter"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+            
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+
+        <LinearLayout
+            android:id="@+id/cbContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cb1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="11111"/>
+
+
+            <CheckBox
+                android:id="@+id/cb2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="22222"/>
+
+            <CheckBox
+                android:id="@+id/cb3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="33333"/>
+        </LinearLayout>
+        
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出登录"
+        android:textColor="#FFF"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:padding="16dp"/>
+    
+</RelativeLayout>
