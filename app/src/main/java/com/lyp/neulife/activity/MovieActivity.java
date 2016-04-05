@@ -1,5 +1,6 @@
 package com.lyp.neulife.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -43,6 +44,8 @@ public class MovieActivity extends BaseActivity implements SwipeRefreshLayout.On
     private RecyclerView movieRcView;
     private Toolbar movieToolbar;
     private SwipeRefreshLayout movieSwipeRefreshLayout;
+
+    private ProgressDialog progressDialog;
 
     private MovieRcAdapter adapter;
 
@@ -91,7 +94,12 @@ public class MovieActivity extends BaseActivity implements SwipeRefreshLayout.On
 //        adapter = new MovieRcAdapter();
 //        movieRcView.setAdapter(adapter);
 
-        Toast.makeText(MovieActivity.this, "加载中...", Toast.LENGTH_SHORT).show();
+        progressDialog = new ProgressDialog(MovieActivity.this);
+        progressDialog.setMessage("加载中...");
+        progressDialog.setCancelable(false);// 表示不能取消弹框，等下载完成之后再让弹出框消失
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+//        Toast.makeText(MovieActivity.this, "加载中...", Toast.LENGTH_SHORT).show();
         new MovieAsyncTask().execute(JsonURL.MOVIE_JSON_URL);
     }
 
@@ -167,6 +175,13 @@ public class MovieActivity extends BaseActivity implements SwipeRefreshLayout.On
     class MovieAsyncTask extends AsyncTask<String, Void, List<BeanMovie>> {
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            movieSwipeRefreshLayout.setRefreshing(true);
+            progressDialog.show();
+        }
+
+        @Override
         protected List<BeanMovie> doInBackground(String... params) {
             return getJsonDatas(params[0]);
         }
@@ -176,17 +191,15 @@ public class MovieActivity extends BaseActivity implements SwipeRefreshLayout.On
             super.onPostExecute(movieDatas);
             Log.d("LYP", "MovieDataNum = "+movieDatas.size());
 
-            adapter = new MovieRcAdapter(MovieActivity.this, movieDatas);
-            movieRcView.setAdapter(adapter);
-
-//            if (movieRcView == null) {
-//                adapter = new MovieRcAdapter();
-//                movieRcView.setAdapter(adapter);
-//            } else {
-//                adapter.notifyDataSetChanged();
-//            }
+            if (adapter == null) {
+                adapter = new MovieRcAdapter(MovieActivity.this, movieDatas);
+                movieRcView.setAdapter(adapter);
+            } else {
+                adapter.notifyDataSetChanged();
+            }
 
             movieSwipeRefreshLayout.setRefreshing(false);
+            progressDialog.dismiss();
             Toast.makeText(MovieActivity.this, "刷新成功", Toast.LENGTH_SHORT).show();
         }
     }
