@@ -54,9 +54,8 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        settingToolbar = (Toolbar) findViewById(R.id.searchToolbar);
-        setSupportActionBar(settingToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        settingToolbar = (Toolbar) findViewById(R.id.settingToolbar);
+        ViewUtils.setToolbarWithBackButton(this, settingToolbar);
 
         cb1 = (CheckBox) findViewById(R.id.cb1);
         cb2 = (CheckBox) findViewById(R.id.cb2);
