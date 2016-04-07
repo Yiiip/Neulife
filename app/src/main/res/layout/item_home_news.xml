@@ -1,18 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     android:id="@+id/news_container">
 
+    <ImageView
+        android:id="@+id/item_course_img"
+        android:layout_width="110dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_news_item"/>
 
-    <TextView
-        android:id="@+id/news_title"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TITLE"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:padding="16dp"/>
+        android:layout_height="match_parent"
+        android:paddingLeft="12dp">
 
+        <TextView
+            android:id="@+id/news_title"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#404040"
+            android:text="News Title"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/news_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/news_title"
+            android:layout_above="@+id/news_bottom_layout"
+            android:paddingTop="1dp"
+            android:paddingBottom="2dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="News content news content news content, news content news content news content."/>
+
+        <LinearLayout
+            android:id="@+id/news_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:id="@+id/news_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="5dp"
+                android:maxLines="1"
+                android:gravity="left|center_vertical"
+                android:textSize="13sp"
+                android:textColor="#C0C0C0"
+                android:text="Author"/>
+
+            <TextView
+                android:id="@+id/news_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="5dp"
+                android:maxLines="1"
+                android:gravity="right|center_vertical"
+                android:textSize="13sp"
+                android:textColor="#C0C0C0"
+                android:text="2016-01-01"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>

@@ -81,7 +81,13 @@
                 android:layout_weight="1"
                 android:text="33333"/>
         </LinearLayout>
-        
+
+        <EditText
+            android:id="@+id/editTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="选择时间"/>
+
     </LinearLayout>
 
     <TextView
