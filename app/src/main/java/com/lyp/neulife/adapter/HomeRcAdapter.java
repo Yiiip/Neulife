@@ -36,7 +36,7 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private List<BeanNews> mDatas;
 
     //Banner图片
-    private int[] localImgIDs = {R.drawable.img_bg_02, R.drawable.img_bg_01};
+    private int[] localImgIDs = {R.drawable.img_banner_02, R.drawable.img_banner_03, R.drawable.img_banner_01};
     private ArrayList<Integer> localImages;
 
     public HomeRcAdapter(Context context, List<BeanNews> datas) {
@@ -166,7 +166,8 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     Toast.makeText(mContext, "点击2", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.btFun3:
-                    mContext.startActivity(new Intent(mContext, MovieActivity.class));
+                    Toast.makeText(mContext, "点击3", Toast.LENGTH_SHORT).show();
+//                    mContext.startActivity(new Intent(mContext, MovieActivity.class));
                     break;
                 case R.id.btFun4:
                     MainActivity.getMainViewPager().setCurrentItem(1);

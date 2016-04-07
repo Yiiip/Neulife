@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+     <ImageView
+         android:layout_height="60dp"
+         android:id="@+id/campus_grid_img"
+         android:layout_width="60dp"
+         android:layout_centerHorizontal="true">
+     </ImageView>
+         
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/campus_grid_img"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="name"
+        android:textColor="#424242"
+        android:singleLine="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/campus_grid_name">
+    </TextView>
+
+</RelativeLayout>

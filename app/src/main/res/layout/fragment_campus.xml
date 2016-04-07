@@ -4,10 +4,17 @@
     android:layout_height="match_parent"
     tools:context="com.lyp.neulife.fragment.CampusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridView
+        android:layout_marginTop="21dp"
+        android:id="@+id/campusGridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="CampusFragment" />
+        android:numColumns="auto_fit"
+        android:verticalSpacing="0dp"
+        android:horizontalSpacing="0dp"
+        android:columnWidth="90dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:scrollbars="none"/>
 
 </FrameLayout>
