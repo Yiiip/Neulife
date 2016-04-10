@@ -96,10 +96,9 @@ public class MovieActivity extends BaseActivity implements SwipeRefreshLayout.On
 
         progressDialog = new ProgressDialog(MovieActivity.this);
         progressDialog.setMessage("加载中...");
-        progressDialog.setCancelable(false);// 表示不能取消弹框，等下载完成之后再让弹出框消失
+        progressDialog.setCancelable(true);// 是否能取消弹框
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
-//        Toast.makeText(MovieActivity.this, "加载中...", Toast.LENGTH_SHORT).show();
         new MovieAsyncTask().execute(JsonURL.MOVIE_JSON_URL);
     }
 
@@ -178,7 +177,6 @@ public class MovieActivity extends BaseActivity implements SwipeRefreshLayout.On
         protected void onPreExecute() {
             super.onPreExecute();
             movieSwipeRefreshLayout.setRefreshing(true);
-            progressDialog.show();
         }
 
         @Override

@@ -8,6 +8,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     private void initData() {
         newsDatas = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             newsDatas.add(new BeanNews("第 "+i+" 条新闻资讯"));
         }
 

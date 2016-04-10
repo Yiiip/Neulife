@@ -12,17 +12,41 @@ import java.io.UnsupportedEncodingException;
 
 public class NetworkUtil {
 
-	// 判断网络是否连接
+	/** 检查是否有网络 */
 	public static boolean isNetworkConnected(Context context) {
 		if (context != null) {
-			// ConnectivityManager主要管理和网络连接相关的操作
-			ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-			NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-			if (mNetworkInfo != null) {
-				return mNetworkInfo.isAvailable();
+			NetworkInfo info = getNetworkInfo(context);
+			if (info != null) {
+				return info.isAvailable();
 			}
 		}
 		return false;
+	}
+
+
+	/** 检查是否是WIFI */
+	public static boolean isWifi(Context context) {
+		NetworkInfo info = getNetworkInfo(context);
+		if (info != null) {
+			if (info.getType() == ConnectivityManager.TYPE_WIFI)
+				return true;
+		}
+		return false;
+	}
+
+	/** 检查是否是移动网络 */
+	public static boolean isMobile(Context context) {
+		NetworkInfo info = getNetworkInfo(context);
+		if (info != null) {
+			if (info.getType() == ConnectivityManager.TYPE_MOBILE)
+				return true;
+		}
+		return false;
+	}
+
+	private static NetworkInfo getNetworkInfo(Context context) {
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		return cm.getActiveNetworkInfo();
 	}
 
 

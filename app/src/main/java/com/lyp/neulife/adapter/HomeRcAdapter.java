@@ -30,6 +30,7 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private static final int TYPE_BANNER_ITEM = 0;
     private static final int TYPE_NEWS_ITEM = 1;
+    private static final int TYPE_FOOTER_ITEM = 2;
 
     private LayoutInflater mLayoutInflater;
     private Context mContext;
@@ -47,7 +48,13 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public int getItemViewType(int position) {
-        return position == 0 ? TYPE_BANNER_ITEM : TYPE_NEWS_ITEM;
+        if (position == 0) {
+            return TYPE_BANNER_ITEM;
+        } else if (position + 1 == getItemCount()) {
+            return TYPE_FOOTER_ITEM;
+        } else {
+            return TYPE_NEWS_ITEM;
+        }
     }
 
     /**
@@ -63,6 +70,8 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 return new ViewHolderBanner(mLayoutInflater.inflate(R.layout.home_header, parent, false));
             case TYPE_NEWS_ITEM:
                 return new ViewHolderNews(mLayoutInflater.inflate(R.layout.item_home_news, parent, false));
+            case TYPE_FOOTER_ITEM:
+                return new ViewHolderFooter(mLayoutInflater.inflate(R.layout.list_footer, parent, false));
         }
         return null;
     }
@@ -76,7 +85,7 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         BeanNews beanNews = null;
-        if (position > 0) {
+        if (position > 0 && position < getItemCount()-1) {
             beanNews = mDatas.get(position - 1);
             if (beanNews == null) {
                 return;
@@ -87,6 +96,10 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (holder instanceof ViewHolderNews) {
 
             ((ViewHolderNews) holder).title.setText(beanNews.getTitle());
+
+        } else if (holder instanceof ViewHolderFooter) {
+
+            ((ViewHolderFooter) holder).footerInfo.setText("加载更多");
 
         } else {
 
@@ -113,7 +126,7 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public int getItemCount() {
-        return mDatas.size() + 1;
+        return mDatas.size() + 2;
     }
 
 
@@ -199,5 +212,15 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
 
+    /**
+     * Footer的ViewHolder
+     */
+    class ViewHolderFooter extends RecyclerView.ViewHolder {
+        TextView footerInfo;
+        public ViewHolderFooter(View itemView) {
+            super(itemView);
+            footerInfo = (TextView) itemView.findViewById(R.id.footerInfo);
+        }
+    }
 
 }
