@@ -68,4 +68,13 @@ public class BaseActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
+    public void startAnimActivity(Class<?> cla) {
+        this.startActivity(new Intent(this, cla));
+    }
+
+    public void startAnimActivity(Intent intent) {
+        this.startActivity(intent);
+    }
 }
