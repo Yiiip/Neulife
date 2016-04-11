@@ -3,6 +3,7 @@ package com.lyp.neulife.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -52,8 +53,32 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         return view;
     }
 
+
+    int lastVisibleItem;
+    Handler handler;
+
     private void initEvent() {
         homeSwipeRefreshLayout.setOnRefreshListener(this);
+
+        homeRcView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == rcAdapter.getItemCount()) {
+
+                    for(int i = 0; i < 10; i++) {
+                        newsDatas.add(new BeanNews("新的新闻资讯"+i));
+                    }
+                    rcAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                lastVisibleItem = ((LinearLayoutManager) homeRcView.getLayoutManager()).findLastVisibleItemPosition();
+            }
+        });
     }
 
     private void initData() {

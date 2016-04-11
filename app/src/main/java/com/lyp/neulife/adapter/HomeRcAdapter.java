@@ -99,7 +99,7 @@ public class HomeRcAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         } else if (holder instanceof ViewHolderFooter) {
 
-            ((ViewHolderFooter) holder).footerInfo.setText("加载更多");
+            ((ViewHolderFooter) holder).footerInfo.setText("加载更多…");
 
         } else {
 

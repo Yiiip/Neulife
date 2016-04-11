@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.flyco.dialog.listener.OnBtnClickL;
@@ -96,7 +97,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         mainViewPager = (ViewPager) findViewById(R.id.mainViewPager);
 
-        mAdapter = new TabViewPagerAdapter(getSupportFragmentManager());
+        mAdapter = new TabViewPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+            }
+        };
         mainViewPager.setAdapter(mAdapter);
 
         mainTab = (TabLayout) findViewById(R.id.mainTab);
